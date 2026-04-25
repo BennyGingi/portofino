@@ -1,26 +1,157 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-cyan: var(--cyan);
+  --color-orange: var(--orange);
+  --font-orbitron: var(--font-orbitron), sans-serif;
+  --font-space-mono: var(--font-space-mono), monospace;
+  --font-inter: var(--font-inter), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Dark Mode Defaults */
+    --bg: #020508;
+    --bg2: #0a0f16;
+    --bg3: #121822;
+    --bg4: #1e293b;
+    --border: rgba(255, 255, 255, 0.1);
+    --border2: rgba(255, 255, 255, 0.2);
+    --border3: rgba(255, 255, 255, 0.3);
+    --text: #ffffff;
+    --text2: #9ca3af;
+    --text3: #6b7280;
+    --cyan: #00e5c8;
+    --cyan-glow: rgba(0, 229, 200, 0.4);
+    --orange: #ff6b2b;
+    --grid-line: rgba(255, 255, 255, 0.03);
+  }
+
+  [data-theme="light"], .light {
+    --bg: #f5f0e8;
+    --bg2: #ede8de;
+    --bg3: #e4ddd1;
+    --bg4: #d9d1c3;
+    --border: rgba(120, 90, 50, 0.12);
+    --border2: rgba(120, 90, 50, 0.28);
+    --border3: rgba(120, 90, 50, 0.45);
+    --text: #1a1410;
+    --text2: #6b5c47;
+    --text3: #a89070;
+    --cyan: #007a6b;
+    --cyan-glow: rgba(0, 122, 107, 0.10);
+    --orange: #c94f1a;
+    --grid-line: rgba(120, 90, 50, 0.06);
+  }
+
+  *, ::before, ::after {
+    border-color: var(--border);
+    transition-property: background-color, border-color, color, fill, stroke, background-image;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-inter), sans-serif;
+    position: relative;
+    overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+  /* Animated CSS Grid Overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    pointer-events: none;
+    transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+    animation: gridMove 20s linear infinite;
+    transition: background-image 0.3s;
+  }
+
+  @keyframes gridMove {
+    0% {
+      transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px);
+    }
+    100% {
+      transform: perspective(500px) rotateX(60deg) translateY(50px) translateZ(-200px);
+    }
+  }
+
+  /* Custom Selection */
+  ::selection {
+    background: rgba(0, 229, 200, 0.3);
+    color: var(--text);
+  }
+  
+  [data-theme="light"] ::selection, .light ::selection {
+    background: rgba(0, 122, 107, 0.3);
+  }
+
+  /* Hide default cursor only on larger screens where custom cursor is active */
+  @media (min-width: 768px) {
+    body, a, button, [role="button"] {
+      cursor: none;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-shadow-cyan {
+    text-shadow: 0 0 10px var(--cyan-glow);
+  }
+  .box-shadow-cyan {
+    box-shadow: 0 0 15px var(--cyan-glow);
+  }
+  .cursor-dot-blend {
+    mix-blend-mode: screen;
+  }
+  [data-theme="light"] .cursor-dot-blend, .light .cursor-dot-blend {
+    mix-blend-mode: normal;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .globe-container {
+    height: 300px !important;
+  }
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.terminal-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.terminal-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+.terminal-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 229, 200, 0.3);
+  border-radius: 3px;
+}
+.terminal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 229, 200, 0.6);
 }
