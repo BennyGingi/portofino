@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { Analytics } from '@/lib/analytics'
 
 interface Message {
   role: 'user' | 'assistant'
@@ -56,6 +57,7 @@ export default function HireBot() {
 
     const userMsg: Message = { role: 'user', content, timestamp: new Date() }
     setMessages((prev) => [...prev, userMsg])
+    Analytics.trackChatMessage()
 
     const assistantMsg: Message = { role: 'assistant', content: '', timestamp: new Date() }
     setMessages((prev) => [...prev, assistantMsg])

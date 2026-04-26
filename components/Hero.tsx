@@ -28,23 +28,23 @@ export default function Hero() {
         <div className="flex flex-col gap-6">
 
           <div className="inline-block">
-            <span className="font-space-mono text-cyan text-xs tracking-widest uppercase border border-[var(--cyan)]/30 bg-[var(--cyan)]/5 px-3 py-1">
+            <span className="font-space-mono text-cyan text-xs tracking-widest uppercase border border-(--cyan)/30 bg-(--cyan)/5 px-3 py-1">
               INITIALIZE SYSTEM //
             </span>
           </div>
 
           <h1 className="font-orbitron font-bold leading-none" style={{ fontSize: "clamp(40px, 6vw, 80px)" }}>
-            <span className="bg-gradient-to-br from-[var(--text)] to-[var(--cyan)] text-transparent bg-clip-text block">
+            <span className="bg-linear-to-br from-(--text) to-(--cyan) text-transparent bg-clip-text block">
               BENNY
             </span>
-            <span className="text-[var(--text)] block">
+            <span className="text-(--text) block">
               GINGIHASHVILI
             </span>
           </h1>
 
           <div className="flex items-center gap-4 font-space-mono text-base" style={{ color: "var(--orange)" }}>
             <span>SOC ANALYST</span>
-            <span style={{ color: "var(--text3)" }}>//</span>
+            <span style={{ color: "var(--text3)" }}></span>
             <span>FULL-STACK DEV</span>
           </div>
 
@@ -67,7 +67,7 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className="font-orbitron font-bold px-8 py-3 transition-all hover:bg-[var(--cyan)]/10"
+              className="font-orbitron font-bold px-8 py-3 transition-all hover:bg-(--cyan)/10"
               style={{
                 border: "1px solid var(--cyan)",
                 color: "var(--cyan)",
@@ -107,6 +107,7 @@ export default function Hero() {
               width: "100%",
               height: "340px",
               overflow: "hidden",
+              isolation: "isolate",
             }}
           >
             <ParticleGlobe
@@ -128,8 +129,11 @@ export default function Hero() {
               overflow: "hidden",
               cursor: "pointer",
               backdropFilter: "blur(8px)",
+              position: "relative",   // ← ADD
+              zIndex: 15,
+              top: 50,              // ← ADD 
             }}
-            className="group hover:border-[var(--cyan)]/50 transition-colors"
+            className="group hover:border-(--cyan)/50 transition-colors"
           >
             {/* Terminal header bar */}
             <div
@@ -204,7 +208,7 @@ export default function Hero() {
           <div style={{ textAlign: "center" }}>
             <button
               onClick={openTerminal}
-              className="font-space-mono text-xs tracking-wider transition-colors hover:text-[var(--cyan)]"
+              className="font-space-mono text-xs tracking-wider transition-colors hover:text-(--cyan)"
               style={{ color: "var(--text3)", background: "none", border: "none", cursor: "pointer" }}
             >
               [ LAUNCH TERMINAL ]

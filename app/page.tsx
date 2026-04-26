@@ -11,10 +11,13 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import HireBot from "@/components/HireBot";
 import TerminalOverlay from "@/components/TerminalOverlay";
+import AnalyticsPanel from "@/components/AnalyticsPanel";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--bg)] text-[var(--text)] overflow-hidden selection:bg-cyan/30">
+      <AnalyticsTracker />
       <Navbar />
       <Hero />
       <StatsBar />
@@ -28,6 +31,7 @@ export default function Home() {
       <Footer />
       <HireBot />
       <TerminalOverlay />
+      <AnalyticsPanel />
     </main>
   );
 }

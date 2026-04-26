@@ -2,6 +2,7 @@
 
 import ScrollReveal from "./ScrollReveal";
 import { ExternalLink, Lock } from "lucide-react";
+import { Analytics } from "@/lib/analytics";
 
 type Project = {
   id: string;
@@ -97,7 +98,8 @@ function ProjectCard({ project, className = "" }: { project: Project; className?
   return (
     <CardWrapper
       {...linkProps}
-      className={`group block h-full bg-[var(--bg2)] border border-[var(--border)] p-6 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-cyan/50 hover:shadow-[0_10px_30px_-15px_rgba(0,229,200,0.3)] ${className}`}
+      onMouseEnter={() => Analytics.trackProjectHover(project.id)}
+      className={`group block h-full bg-(--bg2) border border-(--border) p-6 relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-cyan/50 hover:shadow-[0_10px_30px_-15px_rgba(0,229,200,0.3)] ${className}`}
     >
       {/* Corner Bracket Decorations for featured */}
       {project.featured && (
@@ -111,7 +113,7 @@ function ProjectCard({ project, className = "" }: { project: Project; className?
 
       <div className="flex justify-between items-start mb-4">
         <div className="flex items-center gap-3">
-          <span className="font-space-mono text-4xl text-[var(--text3)] font-bold opacity-50">
+          <span className="font-space-mono text-4xl text-(--text3) font-bold opacity-50">
             {project.number}
           </span>
           <span className="text-3xl">{project.icon}</span>
@@ -121,27 +123,27 @@ function ProjectCard({ project, className = "" }: { project: Project; className?
             {project.status}
           </span>
           {project.url && project.url !== "#" ? (
-            <ExternalLink size={18} className="text-[var(--text3)] group-hover:text-cyan transition-colors" />
+            <ExternalLink size={18} className="text-(--text3) group-hover:text-cyan transition-colors" />
           ) : (
-            <Lock size={18} className="text-[var(--text3)]" />
+            <Lock size={18} className="text-(--text3)" />
           )}
         </div>
       </div>
 
-      <h3 className="font-orbitron text-xl font-bold text-[var(--text)] mb-1 group-hover:text-cyan transition-colors">
+      <h3 className="font-orbitron text-xl font-bold text-(--text) mb-1 group-hover:text-cyan transition-colors">
         {project.title}
       </h3>
       <div className="font-space-mono text-xs text-orange mb-4 uppercase tracking-wider">
         {project.type}
       </div>
 
-      <p className="text-[var(--text2)] text-sm leading-relaxed mb-6">
+      <p className="text-(--text2) text-sm leading-relaxed mb-6">
         {project.desc}
       </p>
 
       <div className="flex flex-wrap gap-2 mt-auto">
         {project.stack.map((tech) => (
-          <span key={tech} className="font-space-mono text-[10px] text-[var(--text3)] bg-[var(--bg3)] px-2 py-1 rounded-sm border border-[var(--border)] group-hover:border-[var(--border2)] transition-colors">
+          <span key={tech} className="font-space-mono text-[10px] text-(--text3) bg-(--bg3) px-2 py-1 rounded-sm border border-(--border) group-hover:border-(--border2) transition-colors">
             {tech}
           </span>
         ))}
@@ -158,7 +160,7 @@ export default function Projects() {
           <h2 className="font-orbitron text-3xl md:text-4xl font-bold mb-16 flex items-center gap-4">
             <span className="text-cyan">03.</span> 
             PROJECTS
-            <span className="h-px bg-[var(--border)] flex-1 ml-4" />
+            <span className="h-px bg-(--border) flex-1 ml-4" />
           </h2>
         </ScrollReveal>
 
