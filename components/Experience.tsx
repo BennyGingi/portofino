@@ -9,7 +9,7 @@ const EXPERIENCES = [
     isCurrent: true,
     company: "Independent / Self-Directed",
     role: "Security & Full-Stack",
-    description: "Shipping personal projects and sharpening SOC skills. Built FoodCritic (social platform, 45 passing e2e tests), VOID RUNNER (browser space shooter), the GHOSTEYE OSINT & security suite, ANTIGRAVITY.SYS (Android bank transaction analyzer), and Rati Tours (multilingual tourism platform). Working through the TryHackMe SOC Level 1 path — 71+ rooms completed.",
+    description: "Shipping personal projects and sharpening SOC skills. Built FoodCritic (social platform, 45 passing e2e tests), VOID RUNNER (browser space shooter), the GHOSTEYE OSINT & security suite, ANTIGRAVITY.SYS (Android bank transaction analyzer), and Rati Tours (multilingual tourism platform). Working through the TryHackMe SOC Level 1 path — 115+ rooms completed, ranked top 3% globally.",
     tools: ["Next.js", "TypeScript", "React", "Python", "Supabase", "Puppeteer", "TryHackMe", "MITRE ATT&CK"]
   },
   {

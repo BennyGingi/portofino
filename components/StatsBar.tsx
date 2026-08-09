@@ -13,7 +13,7 @@ export default function StatsBar() {
               <div className="font-space-mono text-xs md:text-sm text-(--text2) uppercase tracking-widest">Passing E2E Tests</div>
             </div>
             <div className="flex flex-col items-center justify-center text-center p-6 border-b md:border-b-0 md:border-r border-(--border)">
-              <div className="font-orbitron text-4xl md:text-5xl font-bold text-cyan mb-2 text-shadow-cyan">71+</div>
+              <div className="font-orbitron text-4xl md:text-5xl font-bold text-cyan mb-2 text-shadow-cyan">115+</div>
               <div className="font-space-mono text-xs md:text-sm text-(--text2) uppercase tracking-widest">TryHackMe Rooms</div>
             </div>
             <div className="flex flex-col items-center justify-center text-center p-6 border-b md:border-b-0 md:border-r border-(--border)">

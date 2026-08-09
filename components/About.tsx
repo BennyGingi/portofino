@@ -31,7 +31,7 @@ export default function About() {
                 <div>
                   <div className="font-space-mono text-cyan text-sm mb-1 uppercase">Training</div>
                   <div className="text-[var(--text)]">TryHackMe SOC Level 1</div>
-                  <div className="text-sm">71+ rooms completed</div>
+                  <div className="text-sm">115+ rooms · Top 3% globally</div>
                 </div>
                 <div>
                   <div className="font-space-mono text-cyan text-sm mb-1 uppercase">Location</div>
