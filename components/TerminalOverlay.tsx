@@ -21,6 +21,33 @@ const COMMANDS = [
 // ── Resume PDF URL — replace with your actual hosted PDF path ─────────────────
 const RESUME_PDF_URL = "/benny-cv.pdf"; // e.g. "/Benny_Gingihashvili_Resume.pdf"
 
+// Auto-run `help` once per browser session so the command list is visible
+// immediately on first open.
+const HELP_SEEN_KEY = "terminal_help_seen";
+
+// Shared help output — rendered by the `help` command and the first-open auto-run.
+const HELP_LINES: React.ReactNode[] = [
+  <div key="h" className="text-cyan-400 font-bold mb-1">Available commands:</div>,
+  <div key="1"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">help</span><span className="text-(--text3)">Show this list of commands</span></div>,
+  <div key="2"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">whoami</span><span className="text-(--text3)">Display basic identity info</span></div>,
+  <div key="nf" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">neofetch</span><span className="text-(--text3)">System information summary</span></div>,
+  <div key="3"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">ls</span><span className="text-(--text3)">List available files &amp; projects</span></div>,
+  <div key="4"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">cat &lt;file&gt;</span><span className="text-(--text3)">Output file contents</span></div>,
+  <div key="6"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">ping foodcritic</span><span className="text-(--text3)">Simulate a network ping</span></div>,
+  <div key="7"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">ssh mobileye</span><span className="text-(--text3)">Attempt secure shell connection</span></div>,
+  <div key="8"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">whois benny</span><span className="text-(--text3)">Output WHOIS record</span></div>,
+  <div key="9"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">sudo hire benny</span><span className="text-(--text3)">Initiate hiring sequence 🚀</span></div>,
+  <div key="10" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">nmap localhost</span><span className="text-(--text3)">Run a local port scan</span></div>,
+  <div key="11" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">htop</span><span className="text-(--text3)">Show running processes</span></div>,
+  <div key="pw" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">pwd / date</span><span className="text-(--text3)">Standard bash utilities</span></div>,
+  <div key="12" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">curl resume</span><span className="text-(--text3)">Download CV PDF</span></div>,
+  <div key="mx" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">matrix</span><span className="text-(--text3)">??</span></div>,
+  <div key="an" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">analytics</span><span className="text-(--text3)">Open analytics dashboard</span></div>,
+  <div key="13" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">history</span><span className="text-(--text3)">Show previous commands</span></div>,
+  <div key="14" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">clear</span><span className="text-(--text3)">Clear terminal output</span></div>,
+  <div key="15" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">exit</span><span className="text-(--text3)">Close terminal</span></div>,
+];
+
 export default function TerminalOverlay() {
   const [isOpen, setIsOpen] = useState(false);
   const [history, setHistory] = useState<OutputLine[]>([]);
@@ -66,6 +93,24 @@ export default function TerminalOverlay() {
     }
   }, [isOpen, history]);
 
+  // First open per session: auto-print the command list so the terminal isn't
+  // a bare prompt. Persisted in sessionStorage — once per browser session.
+  useEffect(() => {
+    if (!isOpen) return;
+    let seen = false;
+    try { seen = sessionStorage.getItem(HELP_SEEN_KEY) === "1"; } catch { /* private mode */ }
+    if (seen) return;
+    try { sessionStorage.setItem(HELP_SEEN_KEY, "1"); } catch { /* private mode */ }
+    void printLines([
+      <div key="welcome" className="text-(--text2) mb-1">
+        Type <span className="text-cyan-400">help</span> anytime · try{" "}
+        <span className="text-cyan-400">sudo hire benny</span> 🚀
+      </div>,
+      ...HELP_LINES,
+    ], 15);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
+
   const addLine = (content: React.ReactNode) => {
     setHistory((prev) => [...prev, { id: Math.random().toString(36).substr(2, 9), content }]);
   };
@@ -102,27 +147,7 @@ export default function TerminalOverlay() {
       switch (c) {
         // ── help ────────────────────────────────────────────────────────────────
         case "help":
-          await printLines([
-            <div key="h" className="text-cyan-400 font-bold mb-1">Available commands:</div>,
-            <div key="1"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">help</span><span className="text-(--text3)">Show this list of commands</span></div>,
-            <div key="2"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">whoami</span><span className="text-(--text3)">Display basic identity info</span></div>,
-            <div key="nf" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">neofetch</span><span className="text-(--text3)">System information summary</span></div>,
-            <div key="3"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">ls</span><span className="text-(--text3)">List available files &amp; projects</span></div>,
-            <div key="4"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">cat &lt;file&gt;</span><span className="text-(--text3)">Output file contents</span></div>,
-            <div key="6"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">ping foodcritic</span><span className="text-(--text3)">Simulate a network ping</span></div>,
-            <div key="7"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">ssh mobileye</span><span className="text-(--text3)">Attempt secure shell connection</span></div>,
-            <div key="8"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">whois benny</span><span className="text-(--text3)">Output WHOIS record</span></div>,
-            <div key="9"  className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">sudo hire benny</span><span className="text-(--text3)">Initiate hiring sequence 🚀</span></div>,
-            <div key="10" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">nmap localhost</span><span className="text-(--text3)">Run a local port scan</span></div>,
-            <div key="11" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">htop</span><span className="text-(--text3)">Show running processes</span></div>,
-            <div key="pw" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">pwd / date</span><span className="text-(--text3)">Standard bash utilities</span></div>,
-            <div key="12" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">curl resume</span><span className="text-(--text3)">Download CV PDF</span></div>,
-            <div key="mx" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">matrix</span><span className="text-(--text3)">??</span></div>,
-            <div key="an" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">analytics</span><span className="text-(--text3)">Open analytics dashboard</span></div>,
-            <div key="13" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">history</span><span className="text-(--text3)">Show previous commands</span></div>,
-            <div key="14" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">clear</span><span className="text-(--text3)">Clear terminal output</span></div>,
-            <div key="15" className="text-cyan-400 w-full flex"><span className="w-48 shrink-0">exit</span><span className="text-(--text3)">Close terminal</span></div>,
-          ], 20);
+          await printLines(HELP_LINES, 20);
           break;
 
         // ── whoami ───────────────────────────────────────────────────────────────

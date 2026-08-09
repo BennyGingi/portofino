@@ -210,10 +210,14 @@ export default function Hero() {
           <div style={{ textAlign: "center" }}>
             <button
               onClick={openTerminal}
-              className="font-space-mono text-xs tracking-wider transition-colors hover:text-(--cyan)"
-              style={{ color: "var(--text3)", background: "none", border: "none", cursor: "pointer" }}
+              className="group/term inline-flex items-center gap-2 font-space-mono text-xs tracking-wider px-4 py-2 border border-(--border2) rounded-sm cursor-pointer text-(--text2) bg-(--bg2) hover:text-(--cyan) hover:border-(--cyan)/60 hover:bg-(--cyan)/5 transition-colors"
+              aria-label="Launch interactive terminal"
             >
-              [ LAUNCH TERMINAL ]
+              <span className="text-(--cyan) font-bold">&gt;_</span>
+              <span>LAUNCH TERMINAL</span>
+              <kbd className="ml-1 px-1.5 py-0.5 text-[10px] rounded-sm border border-(--border) bg-(--bg3) text-(--text3)">
+                Ctrl+~
+              </kbd>
             </button>
           </div>
 

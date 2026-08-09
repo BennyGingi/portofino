@@ -11,6 +11,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import HireBot from "@/components/HireBot";
 import TerminalOverlay from "@/components/TerminalOverlay";
+import TerminalHint from "@/components/TerminalHint";
 import AnalyticsPanel from "@/components/AnalyticsPanel";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 
@@ -31,6 +32,7 @@ export default function Home() {
       <Footer />
       <HireBot />
       <TerminalOverlay />
+      <TerminalHint />
       <AnalyticsPanel />
     </main>
   );
