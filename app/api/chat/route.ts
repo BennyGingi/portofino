@@ -65,7 +65,7 @@ Environment: Windows/PowerShell, pnpm, Claude Code
 PROJECTS
 ═══════════════════════════════
 
-1. FoodCritic — https://foodcritic-bennygolan.vercel.app
+1. FoodCritic — https://foodcritic.bennygingi.tech
    Social media platform for food lovers and restaurants.
    Built with Next.js 14 + Supabase + Mantine + Tailwind.
    Features: unique 7-plate rating system, social feed, restaurant creation

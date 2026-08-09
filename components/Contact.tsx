@@ -31,7 +31,7 @@ export default function Contact() {
       icon: <ExternalLink size={24} />,
       label: "Featured Project",
       value: "FoodCritic",
-      url: "https://foodcritic-bennygolan.vercel.app",
+      url: "https://foodcritic.bennygingi.tech",
     }
   ];
 

@@ -280,7 +280,7 @@ export default function TerminalOverlay() {
 
         // ── ping ─────────────────────────────────────────────────────────────────
         case "ping foodcritic":
-          await printLines([<div key="0">PING foodcritic-bennygolan.vercel.app</div>], 0);
+          await printLines([<div key="0">PING foodcritic.bennygingi.tech</div>], 0);
           for (let i = 0; i < 3; i++) {
             await new Promise(r => setTimeout(r, 600));
             await printLines([
@@ -291,7 +291,7 @@ export default function TerminalOverlay() {
             <div key="s" className="mt-1">--- ping statistics ---</div>,
             <div key="r">3 packets transmitted, 3 received, <span className="text-green-400">0% loss</span></div>,
             <div key="l" className="text-cyan-400 mt-1">
-              → <a href="https://foodcritic-bennygolan.vercel.app" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">foodcritic-bennygolan.vercel.app</a>
+              → <a href="https://foodcritic.bennygingi.tech" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">foodcritic.bennygingi.tech</a>
             </div>
           ], 0);
           break;

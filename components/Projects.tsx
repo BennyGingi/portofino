@@ -29,7 +29,7 @@ const PROJECTS: Project[] = [
     statusColor: "text-green-400 border-green-400/30 bg-green-400/10",
     desc: "Full-stack food social network for restaurant discovery and reviews. Unique 7-plate rating system, real-time social feed, restaurant creation flow with confetti animation, referral & token reward system, interactive Leaflet.js map, 45 e2e tests passing.",
     stack: ["Next.js 14", "TypeScript", "Supabase", "Mantine UI", "Tailwind", "Leaflet.js", "PostgreSQL"],
-    url: "https://foodcritic-bennygolan.vercel.app",
+    url: "https://foodcritic.bennygingi.tech",
     featured: true
   },
   {
