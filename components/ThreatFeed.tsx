@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type Severity = "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" | "INFO";
@@ -204,12 +205,14 @@ export default function ThreatFeed() {
   const [stats, setStats]     = useState({ total: 0, critical: 0, resolved: 0 });
   const [paused, setPaused]   = useState(false);
   const feedRef               = useRef<HTMLDivElement>(null);
+  const reduced               = usePrefersReducedMotion();
 
   // ── live clock ──────────────────────────────────────────────────────────────
   useEffect(() => {
+    if (reduced) return; // no ticking "Xs ago" updates under reduced motion
     const t = setInterval(() => setNowMs(Date.now()), 1000);
     return () => clearInterval(t);
-  }, []);
+  }, [reduced]);
 
   // ── alert generator ─────────────────────────────────────────────────────────
   const spawnAlert = useCallback(() => {
@@ -240,6 +243,11 @@ export default function ThreatFeed() {
   }, []);
 
   useEffect(() => {
+    // Reduced motion: seed a static snapshot once, then no ongoing spawns.
+    if (reduced) {
+      if (feed.length === 0) { spawnAlert(); spawnAlert(); spawnAlert(); spawnAlert(); }
+      return;
+    }
     if (paused) return;
     let cancelled = false;
     const schedule = () => {
@@ -251,7 +259,9 @@ export default function ThreatFeed() {
     };
     const cancel = schedule();
     return () => { cancelled = true; cancel(); };
-  }, [paused, spawnAlert]);
+    // feed.length intentionally omitted — seed runs once on the empty feed
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paused, spawnAlert, reduced]);
 
   // ── update helper ────────────────────────────────────────────────────────────
   const updateAlert = (id: string, patch: Partial<LiveAlert>) => {

@@ -559,7 +559,15 @@ export default function ParticleGlobe({ className, style }: ParticleGlobeProps) 
             animateFn(now, autoY);
             renderer.render(scene, camera);
         }
-        animate();
+
+        // Reduced motion: render one static frame, no rotation loop.
+        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReduced) {
+            animateFn(performance.now(), 0);
+            renderer.render(scene, camera);
+        } else {
+            animate();
+        }
 
         // cleanup
         return () => {

@@ -106,6 +106,24 @@
       cursor: none;
     }
   }
+
+  /* Respect reduced-motion: kill decorative animation/transition (M-3).
+     JS-driven motion is gated separately via usePrefersReducedMotion. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    body::before {
+      animation: none !important;
+    }
+    /* Custom cursor is disabled under reduced motion — restore native cursor. */
+    body, a, button, [role="button"] {
+      cursor: auto !important;
+    }
+  }
 }
 
 @layer utilities {

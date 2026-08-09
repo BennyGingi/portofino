@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 export default function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null);
@@ -8,6 +9,7 @@ export default function CustomCursor() {
   const requestRef = useRef<number>(0);
   const [isHovering, setIsHovering] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
+  const reduced = usePrefersReducedMotion();
 
   // Mouse positions
   const mouse = useRef({ x: -100, y: -100 });
@@ -29,7 +31,7 @@ export default function CustomCursor() {
   }, []);
 
   useEffect(() => {
-    if (isMobile) return;
+    if (isMobile || reduced) return;
 
     const onMouseMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY };
@@ -74,9 +76,9 @@ export default function CustomCursor() {
       window.removeEventListener("mouseover", handleMouseOver);
       cancelAnimationFrame(requestRef.current);
     };
-  }, [isMobile, isHovering]);
+  }, [isMobile, isHovering, reduced]);
 
-  if (isMobile) return null;
+  if (isMobile || reduced) return null;
 
   return (
     <>

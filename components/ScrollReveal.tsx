@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -12,6 +13,12 @@ interface ScrollRevealProps {
 export default function ScrollReveal({ children, delay = 0, className = "" }: ScrollRevealProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const reduced = usePrefersReducedMotion();
+
+  // Reduced motion: render in place, no fade/slide.
+  if (reduced) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
