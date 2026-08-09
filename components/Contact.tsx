@@ -103,7 +103,7 @@ export default function Contact() {
               </p>
 
               <a 
-                href="mailto:hello@example.com" // TODO: Update with real email
+                href="mailto:gingi2603@gmail.com"
                 className="inline-flex items-center justify-center gap-3 bg-cyan text-[var(--bg)] font-orbitron font-bold px-8 py-4 rounded-sm hover:bg-[var(--text)] transition-colors w-full sm:w-auto text-lg shadow-[0_0_20px_rgba(0,229,200,0.3)] hover:shadow-[0_0_30px_rgba(0,229,200,0.5)]"
               >
                 INITIATE_HANDSHAKE <Send size={20} />

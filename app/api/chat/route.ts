@@ -25,8 +25,6 @@ CURRENT ROLE
 Company: Mobileye (Intel) — autonomous driving R&D, Jerusalem
 Title: SOC Analyst
 Started: July 2025 (~9 months experience, targeting 1.5 years before transitioning)
-Manager: Alon Schwartz
-Mentor: Shlomo Grodzenski
 Team: Small tight-knit SOC team
 
 What he actually does day to day:
@@ -69,9 +67,9 @@ PROJECTS
    45 e2e tests passing, dark/light mode, full admin tools.
    Status: Live and deployed on Vercel.
 
-2. SOC Portal — https://soc-portal.mobileye.com (internal only)
+2. SOC Portal — internal enterprise security dashboard (not public)
    Benny's biggest professional achievement — built from scratch,
-   deployed enterprise-wide at Mobileye, used by the entire SOC team daily.
+   deployed enterprise-wide and used by the entire SOC team daily.
    
    LAYER 1 — ML Phishing Bot:
    Independently analyzes user-reported phishing emails using machine learning.
@@ -89,9 +87,9 @@ PROJECTS
    real-time verdict aggregated from multiple threat intel data sources.
    Live enrichment, not cached. Full IOC lookup in one place.
    
-   Infrastructure: IIS reverse proxy, SSL certificate, SSO authentication,
-   PM2 process manager, Windows Server, GitLab CI/CD pipeline.
-   Stack: Next.js, Node.js, Puppeteer, AD two-tier auth.
+   Deployment: self-hosted behind SSO, served over SSL, with an
+   automated CI/CD pipeline for releases.
+   Stack: Next.js, Node.js, Puppeteer.
 
 3. VOID RUNNER — cyberpunk browser space shooter game.
    12 weapons, shop system, wave-based enemies, global leaderboard.
@@ -220,16 +218,90 @@ TONE RULES (always)
 - Sign off with attitude, not fluff
 `
 
+// ── Request bounds (H-2) ─────────────────────────────────────────────────────
+const MAX_BODY_BYTES = 16 * 1024   // reject bodies larger than 16 KB outright
+const MAX_MESSAGES = 40            // cap conversation history length
+const MAX_MESSAGE_CHARS = 4000     // cap a single message's size
+
+// ── Rate limit (H-2) ─────────────────────────────────────────────────────────
+// In-memory sliding window. NOTE: this store lives in a single serverless
+// instance's memory and RESETS on cold start / per lambda instance. It is a
+// cheap first line of defense, not a distributed limiter. For hard guarantees
+// across instances, back this with Vercel KV / Upstash.
+const RATE_LIMIT_WINDOW_MS = 60_000   // 1 minute
+const RATE_LIMIT_MAX = 15             // max requests per IP per window
+const rateStore = new Map<string, number[]>()
+
+function getClientIp(req: NextRequest): string {
+  const fwd = req.headers.get('x-forwarded-for')
+  if (fwd) return fwd.split(',')[0].trim()
+  return req.headers.get('x-real-ip') ?? 'unknown'
+}
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now()
+  const hits = (rateStore.get(ip) ?? []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS)
+  hits.push(now)
+  rateStore.set(ip, hits)
+  return hits.length > RATE_LIMIT_MAX
+}
+
+function jsonError(message: string, status: number): Response {
+  return new Response(JSON.stringify({ error: message }), {
+    status,
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+  })
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const { messages } = await req.json()
+    // H-2: per-IP rate limit before any parsing or LLM work
+    if (isRateLimited(getClientIp(req))) {
+      return jsonError('Too many requests. Slow down and try again shortly.', 429)
+    }
+
+    // H-2: bound the raw body before doing anything with it
+    const raw = await req.text()
+    if (raw.length > MAX_BODY_BYTES) {
+      return jsonError('Request body too large.', 413)
+    }
+
+    let parsed: unknown
+    try {
+      parsed = JSON.parse(raw)
+    } catch {
+      return jsonError('Invalid JSON body.', 400)
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const messages = (parsed as { messages?: any[] })?.messages as any[]
+
+    // H-2: cap conversation length and per-message size before any LLM call
+    if (Array.isArray(messages) && messages.length > MAX_MESSAGES) {
+      return jsonError('Conversation too long.', 413)
+    }
+    if (
+      Array.isArray(messages) &&
+      messages.some((m) => typeof m?.content === 'string' && m.content.length > MAX_MESSAGE_CHARS)
+    ) {
+      return jsonError('Message too long.', 413)
+    }
+
+    // M-2: validate request shape — return a clean 400 instead of a 500 fall-through
+    if (!Array.isArray(messages) || messages.length === 0) {
+      return jsonError('`messages` must be a non-empty array.', 400)
+    }
+    const last = messages[messages.length - 1]
+    if (!last || typeof last.content !== 'string') {
+      return jsonError('The last message must have a string `content`.', 400)
+    }
 
     const userMessages = messages.filter((m: { role: string }) => m.role === 'user')
     if (userMessages.length === 0) {
-      return new Response('No user message', { status: 400 })
+      return jsonError('No user message provided.', 400)
     }
 
-    const lastMessage = messages[messages.length - 1].content
+    const lastMessage = last.content
 
     // 1. Programmatic Input Filter (Pre-LLM)
     const jailbreakKeywords = [

@@ -274,7 +274,7 @@ export default function TerminalOverlay() {
 
         // ── ssh ──────────────────────────────────────────────────────────────────
         case "ssh mobileye":
-          await printLines([<div key="1">Connecting to soc-portal.mobileye.com...</div>], 0);
+          await printLines([<div key="1">Connecting to soc-portal.internal...</div>], 0);
           await new Promise(r => setTimeout(r, 1000));
           await printLines([<div key="2" className="text-cyan-400">████████████████ 100%</div>], 0);
           await new Promise(r => setTimeout(r, 500));

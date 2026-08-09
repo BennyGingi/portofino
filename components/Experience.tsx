@@ -9,7 +9,7 @@ const EXPERIENCES = [
     isCurrent: true,
     company: "Mobileye (Intel)",
     role: "SOC Analyst",
-    description: "Tier 1/2 threat analyst at Intel's autonomous-driving R&D unit. Monitor and triage security events across the enterprise. Built and deployed an internal SOC Portal — a full-stack Next.js app with ML phishing analysis, two-tier AD auth, admin panel, Puppeteer screenshot capability — live at soc-portal.mobileye.com via IIS + PM2 + GitLab CI.",
+    description: "Tier 1/2 threat analyst at Intel's autonomous-driving R&D unit. Monitor and triage security events across the enterprise. Built and deployed an internal enterprise security dashboard from scratch — a full-stack Next.js app with ML phishing analysis, SSO-gated admin panel, and Puppeteer screenshot capability — shipped enterprise-wide via an automated CI/CD pipeline.",
     tools: ["CrowdStrike", "Hunters SIEM", "Palo Alto Panorama", "Cisco IronPort ESA", "Microsoft Defender", "MITRE ATT&CK", "QRadar", "Next.js", "Node.js", "PM2", "IIS"]
   },
   {

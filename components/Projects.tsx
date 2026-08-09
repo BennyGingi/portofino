@@ -40,7 +40,7 @@ const PROJECTS: Project[] = [
     type: "Internal Security Tool · Mobileye",
     status: "Enterprise Internal",
     statusColor: "text-cyan border-[var(--cyan)]/30 bg-[var(--cyan)]/10",
-    desc: "Enterprise SOC dashboard deployed at Mobileye. ML phishing triage, AD two-tier auth, admin panel, PAB reporter detection, Puppeteer screenshots. IIS reverse proxy + SSL + PM2 + GitLab CI.",
+    desc: "Enterprise SOC dashboard deployed at Mobileye. ML phishing triage, SSO-gated admin panel, PAB reporter detection, Puppeteer screenshots. Self-hosted over SSL with an automated CI/CD pipeline.",
     stack: ["Next.js", "Node.js", "PM2", "IIS", "AD Auth", "Puppeteer", "GitLab CI"]
   },
   {

@@ -34,3 +34,7 @@ Thumbs.db
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+AUDIT.md
+.claude/
+portofino
