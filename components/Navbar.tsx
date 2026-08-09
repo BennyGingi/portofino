@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useSyncExternalStore } from "react";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun, Download } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const NAV_LINKS = ["About", "Experience", "Projects", "Skills", "Contact"];
@@ -77,9 +77,15 @@ export default function Navbar() {
         </button>
         {/* Availability dot for mobile */}
         <span className="w-2 h-2 rounded-full bg-green-500 block animate-pulse box-shadow-cyan" />
-        <span className="font-space-mono text-[10px] text-(--text2) uppercase tracking-widest">
-          Available for opportunities
-        </span>
+        {/* Download CV (mobile) */}
+        <a
+          href="/benny-cv-2026-08.pdf"
+          download
+          className="inline-flex items-center gap-1 font-space-mono text-[10px] uppercase tracking-wider px-2 py-1 border border-(--cyan)/40 rounded-sm text-cyan hover:bg-(--cyan)/10 transition-colors"
+          aria-label="Download CV"
+        >
+          <Download size={12} /> CV
+        </a>
       </div>
       {/* Desktop CTA */}
       <div className="hidden md:flex items-center gap-4">
@@ -98,6 +104,14 @@ export default function Navbar() {
             Available for opportunities
           </span>
         </div>
+        {/* Download CV (desktop) */}
+        <a
+          href="/benny-cv-2026-08.pdf"
+          download
+          className="inline-flex items-center gap-1.5 font-space-mono text-[10px] uppercase tracking-wider px-3 py-1.5 border border-(--cyan)/40 rounded-sm text-cyan hover:bg-(--cyan)/10 transition-colors"
+        >
+          <Download size={12} /> Download CV
+        </a>
       </div>
 
         {/* Mobile Hamburger */}

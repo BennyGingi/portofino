@@ -19,7 +19,7 @@ const COMMANDS = [
 ];
 
 // ── Resume PDF URL — replace with your actual hosted PDF path ─────────────────
-const RESUME_PDF_URL = "/benny-cv.pdf"; // e.g. "/Benny_Gingihashvili_Resume.pdf"
+const RESUME_PDF_URL = "/benny-cv-2026-08.pdf";
 
 // Auto-run `help` once per browser session so the command list is visible
 // immediately on first open.

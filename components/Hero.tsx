@@ -1,7 +1,7 @@
 "use client";
 
 import ScrollReveal from "./ScrollReveal";
-import { Terminal } from "lucide-react";
+import { Terminal, Download } from "lucide-react";
 import dynamic from "next/dynamic";
 import { openTerminal } from "./TerminalOverlay";
 
@@ -75,6 +75,17 @@ export default function Hero() {
               }}
             >
               CONTACT_ME
+            </a>
+            <a
+              href="/benny-cv-2026-08.pdf"
+              download
+              className="font-orbitron font-bold px-8 py-3 transition-all hover:bg-(--cyan)/10 inline-flex items-center gap-2"
+              style={{
+                border: "1px solid var(--cyan)",
+                color: "var(--cyan)",
+              }}
+            >
+              <Download size={16} /> DOWNLOAD_CV
             </a>
           </div>
 
