@@ -190,15 +190,14 @@ export default function TerminalOverlay() {
         case "cat education.json":
           await printLines([
             <div key="1">{"{"}</div>,
-            <div key="2" className="ml-4"><span className="text-cyan-400">&quot;degree&quot;</span>: <span className="text-green-400">&quot;B.Sc. Computer Science&quot;</span>,</div>,
-            <div key="3" className="ml-4"><span className="text-cyan-400">&quot;institution&quot;</span>: <span className="text-green-400">&quot;Academic College of Ramat-Gan&quot;</span>,</div>,
-            <div key="4" className="ml-4"><span className="text-cyan-400">&quot;status&quot;</span>: <span className="text-green-400">&quot;In Progress (2022 - Present)&quot;</span>,</div>,
-            <div key="5" className="ml-4"><span className="text-cyan-400">&quot;certifications&quot;</span>: [</div>,
-            <div key="6" className="ml-8 text-green-400">&quot;TryHackMe SOC Level 1 Path (71+ rooms)&quot;,</div>,
-            <div key="7" className="ml-8 text-(--text3)">&quot;AZ-900: Azure Fundamentals (Planned)&quot;,</div>,
-            <div key="8" className="ml-8 text-(--text3)">&quot;CKS: Certified Kubernetes Security (Planned)&quot;</div>,
-            <div key="9" className="ml-4">]</div>,
-            <div key="10">{"}"}</div>
+            <div key="2" className="ml-4"><span className="text-cyan-400">&quot;training&quot;</span>: <span className="text-green-400">&quot;TryHackMe SOC Level 1 Path&quot;</span>,</div>,
+            <div key="3" className="ml-4"><span className="text-cyan-400">&quot;progress&quot;</span>: <span className="text-green-400">&quot;71+ rooms completed&quot;</span>,</div>,
+            <div key="4" className="ml-4"><span className="text-cyan-400">&quot;certifications&quot;</span>: [</div>,
+            <div key="5" className="ml-8 text-green-400">&quot;TryHackMe SOC Level 1 Path (71+ rooms)&quot;,</div>,
+            <div key="6" className="ml-8 text-(--text3)">&quot;AZ-900: Azure Fundamentals (Planned)&quot;,</div>,
+            <div key="7" className="ml-8 text-(--text3)">&quot;CKS: Certified Kubernetes Security (Planned)&quot;</div>,
+            <div key="8" className="ml-4">]</div>,
+            <div key="9">{"}"}</div>
           ]);
           break;
 

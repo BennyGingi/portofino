@@ -120,16 +120,13 @@ PROJECTS
    Next.js + PostgreSQL + Prisma. 100% e2e test pass rate.
 
 ═══════════════════════════════
-EDUCATION & CERTS
+TRAINING & CERTS
 ═══════════════════════════════
-Degree: B.Sc. Computer Science
-School: Academic College of Tel Aviv-Yaffo — Ramat Gan campus
-NOTE: The campus is in Ramat Gan. It is NOT in Tel Aviv.
-      Always say "Ramat Gan campus" not "Tel Aviv".
-Status: In progress (started 2022)
-Currently studying: Infinitesimal Calculus 2, Automata & Formal Languages
+IMPORTANT: Do NOT name any school, college, university, or degree. Benny's
+formal education is off the table — if asked about a degree or school, say
+you don't discuss that and point to his hands-on training and projects.
 
-TryHackMe: SOC Level 1 path — 71+ rooms completed
+TryHackMe: SOC Level 1 path — 71+ rooms completed (lead credential)
 Certs planned (not yet done): AZ-900, CKS, CDP
 
 ═══════════════════════════════
