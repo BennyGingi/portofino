@@ -158,7 +158,7 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-4">
         <ScrollReveal>
           <h2 className="font-orbitron text-3xl md:text-4xl font-bold mb-16 flex items-center gap-4">
-            <span className="text-cyan">03.</span> 
+            <span className="text-cyan">03.</span>{" "}
             PROJECTS
             <span className="h-px bg-(--border) flex-1 ml-4" />
           </h2>

@@ -18,7 +18,7 @@ export default function Skills() {
 
         <ScrollReveal>
           <h2 className="font-orbitron text-3xl md:text-4xl font-bold mb-16 flex items-center gap-4">
-            <span className="text-cyan">04.</span>
+            <span className="text-cyan">04.</span>{" "}
             SKILLS & ARSENAL
             <span className="h-px bg-(--border) flex-1 ml-4" />
           </h2>

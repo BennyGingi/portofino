@@ -29,7 +29,7 @@ export default function Experience() {
       <div className="max-w-7xl mx-auto px-4">
         <ScrollReveal>
           <h2 className="font-orbitron text-3xl md:text-4xl font-bold mb-16 flex items-center gap-4">
-            <span className="text-cyan">02.</span>
+            <span className="text-cyan">02.</span>{" "}
             EXPERIENCE
             <span className="h-px bg-[var(--border)] flex-1 ml-4" />
           </h2>

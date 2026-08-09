@@ -9,7 +9,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4">
         <ScrollReveal>
           <h2 className="font-orbitron text-3xl md:text-4xl font-bold mb-12 flex items-center gap-4">
-            <span className="text-cyan">01.</span> 
+            <span className="text-cyan">01.</span>{" "}
             ABOUT_ME
             <span className="h-px bg-[var(--border)] flex-1 ml-4" />
           </h2>

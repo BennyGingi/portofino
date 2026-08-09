@@ -36,7 +36,7 @@ export default function Hero() {
           <h1 className="font-orbitron font-bold leading-none" style={{ fontSize: "clamp(40px, 6vw, 80px)" }}>
             <span className="bg-linear-to-br from-(--text) to-(--cyan) text-transparent bg-clip-text block">
               BENNY
-            </span>
+            </span>{" "}
             <span className="text-(--text) block">
               GINGIHASHVILI
             </span>
@@ -44,7 +44,7 @@ export default function Hero() {
 
           <div className="flex items-center gap-4 font-space-mono text-base" style={{ color: "var(--orange)" }}>
             <span>SOC ANALYST</span>
-            <span style={{ color: "var(--text3)" }}></span>
+            <span style={{ color: "var(--text3)" }}> · </span>
             <span>FULL-STACK DEV</span>
           </div>
 
