@@ -5,15 +5,24 @@ import ScrollReveal from "./ScrollReveal";
 const EXPERIENCES = [
   {
     id: 1,
-    period: "2025–Present",
+    period: "Aug 2025 – Present",
     isCurrent: true,
-    company: "Mobileye (Intel)",
-    role: "SOC Analyst",
-    description: "Tier 1/2 threat analyst at Intel's autonomous-driving R&D unit. Monitor and triage security events across the enterprise. Built and deployed an internal enterprise security dashboard from scratch — a full-stack Next.js app with ML phishing analysis, SSO-gated admin panel, and Puppeteer screenshot capability — shipped enterprise-wide via an automated CI/CD pipeline.",
-    tools: ["CrowdStrike", "Hunters SIEM", "Palo Alto Panorama", "Cisco IronPort ESA", "Microsoft Defender", "MITRE ATT&CK", "QRadar", "Next.js", "Node.js", "PM2", "IIS"]
+    company: "Independent / Self-Directed",
+    role: "Security & Full-Stack",
+    description: "Shipping personal projects and sharpening SOC skills. Built FoodCritic (social platform, 45 passing e2e tests), VOID RUNNER (browser space shooter), the GHOSTEYE OSINT & security suite, ANTIGRAVITY.SYS (Android bank transaction analyzer), and Rati Tours (multilingual tourism platform). Working through the TryHackMe SOC Level 1 path — 71+ rooms completed.",
+    tools: ["Next.js", "TypeScript", "React", "Python", "Supabase", "Puppeteer", "TryHackMe", "MITRE ATT&CK"]
   },
   {
     id: 2,
+    period: "Jun 2025 – Aug 2025",
+    isCurrent: false,
+    company: "Mobileye (Intel)",
+    role: "SOC Analyst · Student Position",
+    description: "Three-month student position on a tight-knit SOC team. Monitored and triaged Tier 1/2 security events across the enterprise. Built and deployed an internal enterprise security dashboard from scratch — a full-stack Next.js app with ML phishing analysis, an SSO-gated admin panel, and Puppeteer screenshot capture — shipped enterprise-wide via an automated CI/CD pipeline.",
+    tools: ["CrowdStrike", "Hunters SIEM", "Palo Alto Panorama", "Cisco IronPort ESA", "Microsoft Defender", "MITRE ATT&CK", "QRadar", "Next.js", "Node.js", "PM2", "IIS"]
+  },
+  {
+    id: 3,
     period: "2022–2023",
     isCurrent: false,
     company: "Freelance Development",

@@ -129,7 +129,7 @@ export default function TerminalOverlay() {
         case "whoami":
           await printLines([
             <div key="1" className="text-white font-bold">Benny Gingihashvili</div>,
-            <div key="2" className="text-(--text2)">SOC Analyst @ Mobileye (Intel)</div>,
+            <div key="2" className="text-(--text2)">SOC Analyst · Full-Stack Developer</div>,
             <div key="3" className="text-(--text2)">Full-Stack Developer</div>,
             <div key="4" className="text-(--text2)">Holon, Israel 🇮🇱</div>,
             <div key="5" className="text-green-400 mt-1">Status: AVAILABLE_FOR_HIRE</div>,
@@ -159,8 +159,8 @@ export default function TerminalOverlay() {
           await printLines([
             <div key="1">{"{"}</div>,
             <div key="2"  className="ml-4"><span className="text-cyan-400">&quot;company&quot;</span>: <span className="text-green-400">&quot;Mobileye (Intel)&quot;</span>,</div>,
-            <div key="3"  className="ml-4"><span className="text-cyan-400">&quot;role&quot;</span>: <span className="text-green-400">&quot;SOC Analyst&quot;</span>,</div>,
-            <div key="4"  className="ml-4"><span className="text-cyan-400">&quot;duration&quot;</span>: <span className="text-green-400">&quot;2023 - Present&quot;</span>,</div>,
+            <div key="3"  className="ml-4"><span className="text-cyan-400">&quot;role&quot;</span>: <span className="text-green-400">&quot;SOC Analyst (Student Position)&quot;</span>,</div>,
+            <div key="4"  className="ml-4"><span className="text-cyan-400">&quot;duration&quot;</span>: <span className="text-green-400">&quot;Jun 2025 - Aug 2025&quot;</span>,</div>,
             <div key="5"  className="ml-4"><span className="text-cyan-400">&quot;tools&quot;</span>: [</div>,
             <div key="6"  className="ml-8 text-green-400">&quot;CrowdStrike&quot;, &quot;Hunters SIEM&quot;, &quot;Palo Alto&quot;,</div>,
             <div key="7"  className="ml-8 text-green-400">&quot;Cisco IronPort&quot;, &quot;Microsoft Defender&quot;</div>,
@@ -237,7 +237,7 @@ export default function TerminalOverlay() {
                 <div className="text-cyan-400 font-bold mb-1">benny@portfolio</div>
                 <div className="text-(--text3)">-----------------</div>
                 <div><span className="text-cyan-400">OS:</span> Windows 11 / WSL2</div>
-                <div><span className="text-cyan-400">Host:</span> Intel Corp / Mobileye</div>
+                <div><span className="text-cyan-400">Host:</span> gingihashvili.dev</div>
                 <div><span className="text-cyan-400">Kernel:</span> TypeScript 5 · Python 3.11</div>
                 <div><span className="text-cyan-400">Uptime:</span> {Math.floor(performance.now() / 60000)} mins</div>
                 <div><span className="text-cyan-400">Packages:</span> 1337 (pnpm)</div>
@@ -289,11 +289,11 @@ export default function TerminalOverlay() {
           await printLines([
             <div key="1">Domain Name:  <span className="text-cyan-400">GINGIHASHVILI.DEV</span></div>,
             <div key="2">Registrant:   <span className="text-white">Benny Gingihashvili</span></div>,
-            <div key="3">Organization: <span className="text-white">Mobileye (Intel)</span></div>,
+            <div key="3">Organization: <span className="text-white">Independent / Open to Work</span></div>,
             <div key="4">Location:     <span className="text-white">Holon, IL 🇮🇱</span></div>,
             <div key="5">Status:       <span className="text-green-500 font-bold">AVAILABLE_FOR_HIRE</span></div>,
             <div key="6">Created:      <span className="text-(--text2)">1994</span></div>,
-            <div key="7">Updated:      <span className="text-(--text2)">2023-Present</span></div>,
+            <div key="7">Updated:      <span className="text-(--text2)">2025</span></div>,
             <div key="8">Expires:      <span className="text-(--text2)">Never</span></div>,
           ]);
           break;

@@ -20,29 +20,35 @@ GitHub: https://github.com/BennyGingi
 Languages: Hebrew (native), English (fluent)
 
 ═══════════════════════════════
-CURRENT ROLE
+EXPERIENCE — PAST SOC ROLE
 ═══════════════════════════════
-Company: Mobileye (Intel) — autonomous driving R&D, Jerusalem
-Title: SOC Analyst
-Started: July 2025 (~9 months experience, targeting 1.5 years before transitioning)
+IMPORTANT: This was a PAST STUDENT POSITION. Benny does NOT currently work
+there. Never say he is currently employed at Mobileye/Intel or anywhere.
+Company: Mobileye (Intel) — autonomous driving R&D
+Title: SOC Analyst — STUDENT POSITION
+Duration: June 2025 – August 2025 (three months). Past role.
 Team: Small tight-knit SOC team
 
-What he actually does day to day:
-- Monitor and triage Tier 1/2 security events across the enterprise
+What he did during that student position:
+- Monitored and triaged Tier 1/2 security events across the enterprise
 - Phishing investigation and verdicts (legit / spam / phish / marketing)
 - Malware detections from CrowdStrike (PowerShell executions, suspicious files)
 - Admin share access failure anomalies
 - C2 communication and lateral movement detection
-- Write incident reports with full verdicts and analyst notes
+- Wrote incident reports with full verdicts and analyst notes
 - Built and deployed the internal SOC Portal from scratch (see projects)
 
-Security platforms used daily:
+Security platforms he used there:
 CrowdStrike Falcon, Hunters SIEM, Palo Alto Panorama,
 Cisco IronPort ESA, Microsoft Defender, QRadar, MITRE ATT&CK
 
-Freelance: YES — Benny is open to freelance work alongside his full-time role.
-He does web development projects and bug bounty hunting.
-If you have an interesting project, reach out at gingi2603@gmail.com
+═══════════════════════════════
+CURRENT — SELF-DIRECTED (Aug 2025 – present)
+═══════════════════════════════
+Since August 2025 Benny has worked independently: shipping personal projects
+(see PROJECTS) and working through the TryHackMe SOC Level 1 path (71+ rooms).
+He is actively open to work — full-time or freelance.
+Web development and bug bounty projects welcome — reach out at gingi2603@gmail.com
 
 ═══════════════════════════════
 DEVELOPMENT SKILLS

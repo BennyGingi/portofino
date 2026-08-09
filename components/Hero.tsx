@@ -49,8 +49,10 @@ export default function Hero() {
           </div>
 
           <p className="leading-relaxed text-base max-w-lg" style={{ color: "var(--text2)", fontSize: "15px" }}>
-            Tier 1/2 threat analyst at Intel&apos;s autonomous-driving R&amp;D unit.
-            Bridging the gap between offensive security and robust full-stack engineering.
+            SOC analyst experience (student position, summer 2025) at an
+            autonomous-driving R&amp;D unit. Now building security tooling and
+            full-stack apps independently — bridging offensive security and
+            robust engineering.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -175,8 +177,8 @@ export default function Hero() {
                   {"    "}<span style={{ color: "var(--orange)" }}>&quot;SOC Analyst&quot;</span>{",\n"}
                   {"    "}<span style={{ color: "var(--orange)" }}>&quot;Full-Stack Developer&quot;</span>{"\n"}
                   {"  "}{"],\n"}
-                  {"  "}<span style={{ color: "var(--cyan)" }}>&quot;company&quot;</span>{": "}
-                  <span style={{ color: "var(--orange)" }}>&quot;Mobileye (Intel)&quot;</span>{",\n"}
+                  {"  "}<span style={{ color: "var(--cyan)" }}>&quot;seeking&quot;</span>{": "}
+                  <span style={{ color: "var(--orange)" }}>&quot;Security Engineering roles&quot;</span>{",\n"}
                   {"  "}<span style={{ color: "var(--cyan)" }}>&quot;location&quot;</span>{": "}
                   <span style={{ color: "var(--orange)" }}>&quot;Holon, Israel&quot;</span>{",\n"}
                   {"  "}<span style={{ color: "var(--cyan)" }}>&quot;open_to_work&quot;</span>{": "}

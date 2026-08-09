@@ -1,7 +1,7 @@
 "use client";
 
 import ScrollReveal from "./ScrollReveal";
-import { User, MapPin, GraduationCap, Code, Shield } from "lucide-react";
+import { User, MapPin, Code, Shield } from "lucide-react";
 
 export default function About() {
   return (
@@ -20,7 +20,7 @@ export default function About() {
           <ScrollReveal delay={0.1}>
             <div className="space-y-6 text-[var(--text2)] leading-relaxed text-lg">
               <p>
-                I am a passionate <span className="text-[var(--text)] font-semibold">SOC Analyst</span> and <span className="text-[var(--text)] font-semibold">Full-Stack Developer</span> currently working at Mobileye (Intel) in Jerusalem. With a strong foundation in both offensive security and modern web development, I build secure, performant, and beautifully designed applications.
+                I am a passionate <span className="text-[var(--text)] font-semibold">SOC Analyst</span> and <span className="text-[var(--text)] font-semibold">Full-Stack Developer</span> based in Holon, Israel. In summer 2025 I held a student SOC position at an autonomous-driving R&amp;D unit; today I build security tooling and full-stack apps independently. With a strong foundation in both offensive security and modern web development, I build secure, performant, and beautifully designed applications.
               </p>
               <p>
                 My journey bridges the gap between identifying vulnerabilities and engineering robust solutions. Whether I'm analyzing threats in a high-stakes enterprise environment or developing a full-stack platform from scratch, my approach is always systematic, analytical, and security-first.
@@ -29,9 +29,9 @@ export default function About() {
               {/* 2x2 Info Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 pt-8 border-t border-[var(--border)]">
                 <div>
-                  <div className="font-space-mono text-cyan text-sm mb-1 uppercase">Education</div>
-                  <div className="text-[var(--text)]">B.Sc. Computer Science</div>
-                  <div className="text-sm">In Progress</div>
+                  <div className="font-space-mono text-cyan text-sm mb-1 uppercase">Training</div>
+                  <div className="text-[var(--text)]">TryHackMe SOC Level 1</div>
+                  <div className="text-sm">71+ rooms completed</div>
                 </div>
                 <div>
                   <div className="font-space-mono text-cyan text-sm mb-1 uppercase">Location</div>
@@ -44,7 +44,7 @@ export default function About() {
                 </div>
                 <div>
                   <div className="font-space-mono text-cyan text-sm mb-1 uppercase">Languages</div>
-                  <div className="text-[var(--text)]">English, Hebrew, Georgian, Russian</div>
+                  <div className="text-[var(--text)] text-sm leading-relaxed">Hebrew (native), Georgian (native), Russian (fluent), English (professional)</div>
                 </div>
               </div>
             </div>
@@ -72,7 +72,7 @@ export default function About() {
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3 text-[var(--text2)]">
                     <User size={16} className="text-cyan" />
-                    <span>Mobileye (Intel) Employee</span>
+                    <span>SOC Analyst · Student (2025)</span>
                   </div>
                   <div className="flex items-center gap-3 text-[var(--text2)]">
                     <MapPin size={16} className="text-cyan" />

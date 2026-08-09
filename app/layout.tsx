@@ -16,7 +16,7 @@ const orbitron = Orbitron({
 
 export const metadata: Metadata = {
   title: "Benny Gingihashvili - SOC Analyst & Full-Stack Developer",
-  description: "Portfolio of Benny Gingihashvili, SOC Analyst at Mobileye (Intel) and Full-Stack Developer.",
+  description: "Portfolio of Benny Gingihashvili, SOC Analyst and Full-Stack Developer.",
 };
 
 import { ThemeProvider } from "next-themes";
