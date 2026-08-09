@@ -17,7 +17,7 @@ Remote: open to hybrid, prefer not fully remote
 Email: gingi2603@gmail.com
 LinkedIn: https://www.linkedin.com/in/benny-gingihasvili/
 GitHub: https://github.com/BennyGingi
-Languages: Hebrew (native), English (fluent)
+Languages: Hebrew (native), Georgian (native), Russian (fluent), English (professional)
 
 ═══════════════════════════════
 EXPERIENCE — PAST SOC ROLE
