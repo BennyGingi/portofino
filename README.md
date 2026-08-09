@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Benny Gingihashvili
 
-## Getting Started
+Single-page portfolio for a SOC analyst / full-stack developer. Cyberpunk
+terminal aesthetic, dark/light theming, and a set of interactive subsystems
+(AI chat, live terminal, simulated threat feed, local analytics).
 
-First, run the development server:
+Live: https://bennygingi.tech
+
+## Stack
+
+- **Next.js 16** (App Router) + **React 19** + **TypeScript**
+- **Tailwind CSS v4** (`@import "tailwindcss"`, no config file; CSS custom-property theme tokens)
+- **Three.js** for the hero globe, **framer-motion** for scroll reveals
+- **pnpm** package manager
+- **Google Gemini** (`gemma-3-27b-it` via REST) behind the chat API
+- Deployed on **Vercel**
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create `.env.local`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+GEMINI_API_KEY=your_key_here   # required for the chat API (/api/chat)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+```bash
+pnpm dev        # dev server
+pnpm build      # production build (runs the CV content guard first, see below)
+pnpm start      # serve the production build
+pnpm lint       # ESLint
+```
 
-To learn more about Next.js, take a look at the following resources:
+There is no test suite.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`app/page.tsx` assembles every section vertically in one `<main>`; each section
+is an independent component in `components/`. `HireBot`, `TerminalOverlay`, and
+`AnalyticsPanel` are floating overlays. Several components communicate through
+`window` custom events (`open-terminal`, `open-analytics`) instead of props, to
+avoid drilling across the flat tree.
 
-## Deploy on Vercel
+### Notable subsystems
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **HireBot** (`components/HireBot.tsx`) — fixed chat widget. POSTs to
+  `/api/chat`, which calls Gemini with a hardcoded persona describing Benny.
+  Includes programmatic jailbreak detection and a post-prompt sandwich defense.
+- **TerminalOverlay** (`components/TerminalOverlay.tsx`) — full-screen
+  interactive terminal (~20 commands: `help`, `whoami`, `sudo hire benny`,
+  `matrix`, `curl resume`, …). Opens via the Hero button, the `open-terminal`
+  event, or `Ctrl+~`.
+- **AnalyticsPanel** (`components/AnalyticsPanel.tsx`) — full-screen dashboard
+  reading entirely from `localStorage` (no server tracking). Opens via
+  `Ctrl+Shift+A` or the `analytics` terminal command.
+- **ThreatFeed** (`components/ThreatFeed.tsx`) — simulated live SOC alert feed.
+  Real UI, mock data. Honors `prefers-reduced-motion`.
+- **ParticleGlobe** (`components/ParticleGlobe.tsx`) — Three.js WebGL globe,
+  `ssr: false`. Renders two distinct designs by theme.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Theming
+
+Tailwind v4 with CSS custom properties (`--bg`, `--cyan`, `--orange`, …). Dark
+values on `:root`, light overrides on `[data-theme="light"]`; `next-themes`
+sets the attribute. Use the variables, not hardcoded colors.
+
+### SEO
+
+`app/layout.tsx` sets Open Graph / Twitter metadata and a `Person` JSON-LD
+block. `app/opengraph-image.tsx` generates the 1200×630 share card via
+`next/og`. `app/robots.ts` and `app/sitemap.ts` round out crawlability.
+
+### CV guard
+
+`scripts/check-cv.mjs` runs on `prebuild`: it extracts the text of
+`public/benny-cv-2026-08.pdf` and fails the build if the PDF leaks sensitive
+strings (phone numbers, internal tool/infra names, MITRE technique IDs). If the
+PDF is absent it warns and passes.
+
+## Environment variables
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `GEMINI_API_KEY` | Yes | Google Gemini API key for `/api/chat` |
