@@ -220,7 +220,7 @@ export default function Hero() {
           <div style={{ textAlign: "center" }}>
             <button
               onClick={openTerminal}
-              className="group/term inline-flex items-center gap-2 font-space-mono text-xs tracking-wider px-4 py-2 border border-(--border2) rounded-sm cursor-pointer text-(--text2) bg-(--bg2) hover:text-(--cyan) hover:border-(--cyan)/60 hover:bg-(--cyan)/5 transition-colors"
+              className="group/term inline-flex items-center gap-2 min-h-[44px] font-space-mono text-xs tracking-wider px-4 py-2 border border-(--border2) rounded-sm cursor-pointer text-(--text2) bg-(--bg2) hover:text-(--cyan) hover:border-(--cyan)/60 hover:bg-(--cyan)/5 transition-colors"
               aria-label="Launch interactive terminal"
             >
               <span className="text-(--cyan) font-bold">&gt;_</span>

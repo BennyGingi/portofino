@@ -233,9 +233,10 @@ export default function HireBot() {
             {/* Close button */}
             <button
               onClick={() => setIsOpen(false)}
+              aria-label="Close chat"
               style={{
-                width: '28px',
-                height: '28px',
+                width: '44px',
+                height: '44px',
                 borderRadius: '50%',
                 border: 'none',
                 background: 'transparent',
@@ -351,8 +352,9 @@ export default function HireBot() {
                   onClick={() => sendMessage(chip)}
                   style={{
                     fontFamily: 'var(--font-space-mono)',
-                    fontSize: '9px',
-                    padding: '6px 12px',
+                    fontSize: '11px',
+                    minHeight: '44px',
+                    padding: '8px 14px',
                     border: '1px solid var(--border2)',
                     color: 'var(--cyan)',
                     background: 'var(--cyan-glow)',
@@ -403,9 +405,10 @@ export default function HireBot() {
             <button
               onClick={() => sendMessage()}
               disabled={isLoading || !input.trim()}
+              aria-label="Send message"
               style={{
-                width: '32px',
-                height: '32px',
+                width: '44px',
+                height: '44px',
                 borderRadius: '50%',
                 border: 'none',
                 background: 'var(--cyan)',
@@ -438,6 +441,7 @@ export default function HireBot() {
 
       {/* Trigger button */}
       <div
+        className="hirebot-trigger"
         style={{
           position: 'fixed',
           bottom: '28px',
@@ -505,7 +509,14 @@ export default function HireBot() {
       <style>{`
         @media (max-width: 640px) {
           .hirebot-trigger { bottom: 16px !important; right: 16px !important; }
-          .hirebot-window-wrap { bottom: 80px !important; right: 16px !important; width: calc(100vw - 32px) !important; height: 460px !important; }
+          .hirebot-window {
+            bottom: 88px !important;
+            left: 16px !important;
+            right: 16px !important;
+            width: auto !important;
+            height: 70vh !important;
+            max-height: 460px !important;
+          }
         }
       `}</style>
     </>

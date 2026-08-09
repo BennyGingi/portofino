@@ -512,7 +512,7 @@ export default function TerminalOverlay() {
         {/* Top Bar */}
         <div className="flex items-center px-4 py-2 bg-black/40 border-b border-cyan-900/50 relative border-t-2 border-t-cyan-500 shadow-[inset_0_1px_0_rgba(0,229,200,0.3)] shrink-0">
           <div className="flex gap-2 z-10">
-            <button onClick={() => setIsOpen(false)} className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 cursor-pointer" />
+            <button onClick={() => setIsOpen(false)} aria-label="Close terminal" className="relative w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 cursor-pointer before:absolute before:-inset-4 before:content-['']" />
             <div className="w-3 h-3 rounded-full bg-yellow-500" />
             <div className="w-3 h-3 rounded-full bg-green-500" />
           </div>
