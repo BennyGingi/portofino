@@ -49,10 +49,9 @@ export default function Hero() {
           </div>
 
           <p className="leading-relaxed text-base max-w-lg" style={{ color: "var(--text2)", fontSize: "15px" }}>
-            SOC analyst experience (student position, summer 2025) at an
-            autonomous-driving R&amp;D unit. Now building security tooling and
-            full-stack apps independently — bridging offensive security and
-            robust engineering.
+            Tier 1 SOC analyst at an autonomous-driving R&amp;D unit
+            (Jun 2025 – Aug 2026). Now building security tooling and full-stack
+            apps — bridging offensive security and robust engineering.
           </p>
 
           <div className="flex flex-wrap gap-4">

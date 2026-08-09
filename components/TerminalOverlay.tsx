@@ -184,8 +184,8 @@ export default function TerminalOverlay() {
           await printLines([
             <div key="1">{"{"}</div>,
             <div key="2"  className="ml-4"><span className="text-cyan-400">&quot;company&quot;</span>: <span className="text-green-400">&quot;Mobileye (Intel)&quot;</span>,</div>,
-            <div key="3"  className="ml-4"><span className="text-cyan-400">&quot;role&quot;</span>: <span className="text-green-400">&quot;SOC Analyst (Student Position)&quot;</span>,</div>,
-            <div key="4"  className="ml-4"><span className="text-cyan-400">&quot;duration&quot;</span>: <span className="text-green-400">&quot;Jun 2025 - Aug 2025&quot;</span>,</div>,
+            <div key="3"  className="ml-4"><span className="text-cyan-400">&quot;role&quot;</span>: <span className="text-green-400">&quot;SOC Analyst · Tier 1&quot;</span>,</div>,
+            <div key="4"  className="ml-4"><span className="text-cyan-400">&quot;duration&quot;</span>: <span className="text-green-400">&quot;Jun 2025 - Aug 2026&quot;</span>,</div>,
             <div key="5"  className="ml-4"><span className="text-cyan-400">&quot;tools&quot;</span>: [</div>,
             <div key="6"  className="ml-8 text-green-400">&quot;CrowdStrike&quot;, &quot;Hunters SIEM&quot;, &quot;Palo Alto&quot;,</div>,
             <div key="7"  className="ml-8 text-green-400">&quot;Cisco IronPort&quot;, &quot;Microsoft Defender&quot;</div>,
@@ -317,7 +317,7 @@ export default function TerminalOverlay() {
             <div key="4">Location:     <span className="text-white">Holon, IL 🇮🇱</span></div>,
             <div key="5">Status:       <span className="text-green-500 font-bold">AVAILABLE_FOR_HIRE</span></div>,
             <div key="6">Created:      <span className="text-(--text2)">1994</span></div>,
-            <div key="7">Updated:      <span className="text-(--text2)">2025</span></div>,
+            <div key="7">Updated:      <span className="text-(--text2)">2026</span></div>,
             <div key="8">Expires:      <span className="text-(--text2)">Never</span></div>,
           ]);
           break;

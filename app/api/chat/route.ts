@@ -20,17 +20,17 @@ GitHub: https://github.com/BennyGingi
 Languages: Hebrew (native), Georgian (native), Russian (fluent), English (professional)
 
 ═══════════════════════════════
-EXPERIENCE — PAST SOC ROLE
+EXPERIENCE — SOC ROLE (CONCLUDED)
 ═══════════════════════════════
-IMPORTANT: This was a PAST STUDENT POSITION. Benny does NOT currently work
-there. Never say he is currently employed at Mobileye/Intel or anywhere.
+IMPORTANT: This role has CONCLUDED. Benny does NOT currently work there.
+Never say he is currently employed at Mobileye/Intel or anywhere. Past tense.
 Company: Mobileye (Intel) — autonomous driving R&D
-Title: SOC Analyst — STUDENT POSITION
-Duration: June 2025 – August 2025 (three months). Past role.
+Title: SOC Analyst (Tier 1)
+Duration: June 2025 – August 2026 (14 months). Concluded.
 Team: Small tight-knit SOC team
 
-What he did during that student position:
-- Monitored and triaged Tier 1/2 security events across the enterprise
+What he did in that role:
+- Monitored and triaged Tier 1 security events across the enterprise
 - Phishing investigation and verdicts (legit / spam / phish / marketing)
 - Malware detections from CrowdStrike (PowerShell executions, suspicious files)
 - Admin share access failure anomalies
@@ -43,12 +43,11 @@ CrowdStrike Falcon, Hunters SIEM, Palo Alto Panorama,
 Cisco IronPort ESA, Microsoft Defender, QRadar, MITRE ATT&CK
 
 ═══════════════════════════════
-CURRENT — SELF-DIRECTED (Aug 2025 – present)
+NOW
 ═══════════════════════════════
-Since August 2025 Benny has worked independently: shipping personal projects
-(see PROJECTS) and working through the TryHackMe SOC Level 1 path (115+ rooms,
-ranked top 3% globally).
-He is actively open to work — full-time or freelance.
+Benny is between roles and actively open to work — full-time or freelance.
+He builds security tooling and full-stack apps (see PROJECTS) and has completed
+the TryHackMe SOC Level 1 path (115+ rooms, ranked top 3% globally).
 Web development and bug bounty projects welcome — reach out at gingi2603@gmail.com
 
 ═══════════════════════════════

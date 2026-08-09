@@ -20,7 +20,7 @@ export default function About() {
           <ScrollReveal delay={0.1}>
             <div className="space-y-6 text-[var(--text2)] leading-relaxed text-lg">
               <p>
-                I am a passionate <span className="text-[var(--text)] font-semibold">SOC Analyst</span> and <span className="text-[var(--text)] font-semibold">Full-Stack Developer</span> based in Holon, Israel. In summer 2025 I held a student SOC position at an autonomous-driving R&amp;D unit; today I build security tooling and full-stack apps independently. With a strong foundation in both offensive security and modern web development, I build secure, performant, and beautifully designed applications.
+                I am a passionate <span className="text-[var(--text)] font-semibold">SOC Analyst</span> and <span className="text-[var(--text)] font-semibold">Full-Stack Developer</span> based in Holon, Israel. From June 2025 to August 2026 I worked as a Tier 1 SOC analyst at an autonomous-driving R&amp;D unit; I now build security tooling and full-stack apps. With a strong foundation in both offensive security and modern web development, I build secure, performant, and beautifully designed applications.
               </p>
               <p>
                 My journey bridges the gap between identifying vulnerabilities and engineering robust solutions. Whether I'm analyzing threats in a high-stakes enterprise environment or developing a full-stack platform from scratch, my approach is always systematic, analytical, and security-first.
@@ -72,7 +72,7 @@ export default function About() {
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3 text-[var(--text2)]">
                     <User size={16} className="text-cyan" />
-                    <span>SOC Analyst · Student (2025)</span>
+                    <span>SOC Analyst · Mobileye (2025–26)</span>
                   </div>
                   <div className="flex items-center gap-3 text-[var(--text2)]">
                     <MapPin size={16} className="text-cyan" />

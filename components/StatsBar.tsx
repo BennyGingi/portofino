@@ -22,10 +22,10 @@ export default function StatsBar() {
             </div>
             <div className="flex flex-col items-center justify-center text-center p-6">
               <div className="font-orbitron text-4xl md:text-5xl font-bold text-cyan mb-2 text-shadow-cyan">
-                100%
+                Top 3%
               </div>
               <div className="font-space-mono text-xs md:text-sm text-(--text2) uppercase tracking-widest">
-                Commitment
+                TryHackMe Global Rank
               </div>
             </div>
           </div>
