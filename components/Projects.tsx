@@ -37,11 +37,11 @@ const PROJECTS: Project[] = [
     number: "02",
     title: "SOC Portal",
     icon: "🔐",
-    type: "Internal Security Tool · Mobileye",
+    type: "INTERNAL SECURITY TOOL · ENTERPRISE SOC",
     status: "Enterprise Internal",
     statusColor: "text-cyan border-[var(--cyan)]/30 bg-[var(--cyan)]/10",
-    desc: "Enterprise SOC dashboard deployed at Mobileye. ML phishing triage, SSO-gated admin panel, PAB reporter detection, Puppeteer screenshots. Self-hosted over SSL with an automated CI/CD pipeline.",
-    stack: ["Next.js", "Node.js", "PM2", "IIS", "AD Auth", "Puppeteer", "GitLab CI"]
+    desc: "Enterprise SOC dashboard serving a full analyst team across 1000+ endpoints. ML-assisted phishing triage, SSO-gated admin panel, PAB reporter detection, automated screenshot capture. Deployed on internal infrastructure with a CI/CD pipeline.",
+    stack: ["Next.js", "Node.js", "PostgreSQL", "SSO", "Puppeteer", "CI/CD"]
   },
   {
     id: "void-runner",
