@@ -53,7 +53,7 @@ const PROJECTS: Project[] = [
     statusColor: "text-green-400 border-green-400/30 bg-green-400/10",
     desc: "Cyberpunk space shooter — 12 weapons, shop system, wave-based enemies, global leaderboard. Pure canvas rendering.",
     stack: ["Next.js", "Canvas API", "TypeScript"],
-    url: "https://void-runner.bennygingi.tech/"
+    url: "https://void-runner.bennygingi.tech"
   },
   {
     id: "ghosteye",
@@ -87,7 +87,7 @@ const PROJECTS: Project[] = [
     statusColor: "text-green-400 border-green-400/30 bg-green-400/10",
     desc: "Multilingual tourism website — English, Hebrew (RTL), Russian. WhatsApp booking integration, dynamic pricing calculator.",
     stack: ["Next.js", "i18n", "RTL", "WhatsApp API", "Vercel"],
-    url: "#"
+    url: "https://ratitoursgeorgia.vercel.app"
   }
 ];
 
