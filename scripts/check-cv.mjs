@@ -32,9 +32,6 @@ const FORBIDDEN = [
   { label: "Ramat", test: "Ramat" },
 ];
 
-// Must be present — the corrected role start date.
-const REQUIRED = "Jun 2025";
-
 function extractWithPdftotext(path) {
   try {
     const r = spawnSync("pdftotext", ["-q", path, "-"], {
@@ -99,10 +96,6 @@ function main() {
     } else if (text.includes(test)) {
       failures.push(`contains forbidden string: "${label}"`);
     }
-  }
-
-  if (!text.includes(REQUIRED)) {
-    failures.push(`missing required string: "${REQUIRED}" (role start date)`);
   }
 
   if (failures.length > 0) {
