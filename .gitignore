@@ -38,3 +38,6 @@ next-env.d.ts
 AUDIT.md
 .claude/
 portofino
+
+# v2 design scratch
+design-ref/
